@@ -2,7 +2,34 @@
   
 {% block body %}
 <form method="POST" action="{{ url_for('purchases_add') }}">
-  <input type="text" name="name"/>
-  <input type="submit" value="Add a new purchase"/>
+  <table>
+      <tr>
+	<td>
+	  {{ form.name.label }}
+	</td>
+	<td>
+	  {{ form.name }}
+	</td>
+  <td>
+    <ul>
+      {% for error in form.name.errors %}
+      <li>{{ error }}</li>
+      {% endfor %}
+    </ul>
+  </td>
+      </tr>
+      <tr>
+        <td>
+         {{ form.amount.label  }}
+        </td>
+        <td>
+         {{ form.amount  }}
+        </td>
+      </tr>
+      <tr>
+	<td colspan="2">
+	  <input type="submit" value="Add a new purchase"/>
+	</td>
+      </tr>
 </form>
 {% endblock %}
