@@ -1,2 +1,6 @@
 2.4 Reseptit tietokantataulu lisätty sovellukseen, ei toimi vielä oikein mutta lisätty kuitenkin mahdollisen aiheen vaihdon takia.
 Muuten sovelluksen ulkoasua paranneltu bootstrapilla ja yhteenvetokysely lisätty.
+Tarkoituksena lisätä reseptien ainesosille oma tietokanta, joka liitetään reseptit tietokantaan.
+Käyttäjät voivat sitten selailla eri käyttäjien tekemiä reseptejä, joita kyseisen reseptin tekijä voi muokata.
+Sovelluksessa luultavasti tulee vain olemaan yhdentasoisia käyttäjiä, siis ei välttämättä admin käyttäjiä.
+Linkki sovellukseen herokussa on README:ssa
