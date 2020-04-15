@@ -12,6 +12,31 @@ from application.recipes.forms import RecipeForm
 def show_recipes():
 	return render_template("recipes/list.html", recipes = Recipe.query.all())
 
+@app.route("/recipes/new/")
+@login_required
+def recipes_form():
+    return render_template("recipes/new.html", form = RecipeForm())
+
+@app.route("/recipes/edit/<recipe_id>/", methods=["POST"])
+@login_required
+def recipes_edit(recipe_id):
+    form = RecipeForm(request.form)
+    recipe = Recipe.query.get(recipe_id)
+
+    if not form.validate():
+        return render_template("recipes/edit.html", form = form, recipe=recipe)
+
+    recipe.name = form.name.data
+    db.session().commit()
+    return redirect(url_for("show_recipes"))
+
+@app.route("/recipes/edit/<recipe_id>/", methods=["GET"])
+@login_required
+def recipes_editform(recipe_id):
+    recipe = Recipe.query.get(recipe_id)
+    return render_template("recipes/edit.html", form = RecipeForm(), recipe=recipe)
+
+
 @app.route("/recipes/", methods=["POST"])
 @login_required
 def recipes_add():
@@ -29,8 +54,3 @@ def recipes_add():
     db.session().commit()
 
     return redirect(url_for("show_recipes"))
-
-@app.route("/recipes/new/")
-@login_required
-def recipes_form():
-    return render_template("recipes/new.html", form = RecipeForm())
