@@ -28,6 +28,9 @@ from application.auth import views
 from application.recipes import models
 from application.recipes import views
 
+from application.ingredients import models
+from application.ingredients import views
+
 #kirjautuminen
 from application.auth.models import User
 from os import urandom

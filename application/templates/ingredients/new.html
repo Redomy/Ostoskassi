@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
   
 {% block body %}
-<form method="POST" action=''>
+<form method="POST" action="">
   <table>
       <tr>
 	<td>
@@ -11,7 +11,12 @@
 	  {{ form.name }}
 	</td>
   <td>
-    <a href='/recipes/edit/{{ recipe.id }}/delete'>Delete</a>
+    {{ form.amount.label }}
+  </td>
+  <td>
+    {{ form.amount }}
+  </td>
+  <td>
     <ul>
       {% for error in form.name.errors %}
       <li>{{ error }}</li>
@@ -21,16 +26,8 @@
       </tr>
       <tr>
 	<td colspan="2">
-	  <input type="submit" value="Save"/>
+	  <input type="submit" value="Add a new ingredient"/>
 	</td>
       </tr>
 </form>
-<table>
-  {% for ingredient in ingredients %}
-  <tr>
-    <td>{{ ingredient.name }}</td>
-    <td>{{ ingredient.amount }}</td>
-  </tr>
-  {% endfor %}
-</table>
 {% endblock %}

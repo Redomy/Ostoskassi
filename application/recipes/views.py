@@ -6,6 +6,8 @@ from flask_login import login_required, current_user
 from application.recipes.models import Recipe
 from application.recipes.forms import RecipeForm
 
+from application.ingredients.models import Ingredient
+
 
 @app.route("/recipes", methods=["GET"])
 #@login_required
@@ -34,13 +36,18 @@ def recipes_edit(recipe_id):
 @login_required
 def recipes_editform(recipe_id):
     recipe = Recipe.query.get(recipe_id)
-    return render_template("recipes/edit.html", form = RecipeForm(), recipe=recipe)
+    return render_template("recipes/edit.html", form = RecipeForm(), recipe=recipe,
+                             ingredients = Ingredient.query.filter_by(recipe_id=recipe_id).all())
 
 @app.route("/recipes/edit/<recipe_id>/delete/")
 @login_required
 def recipes_delete(recipe_id):
     recipe = Recipe.query.get(recipe_id)
+    ingredients = Ingredient.query.filter_by(recipe_id=recipe_id).all()
     db.session().delete(recipe)
+    for ingredient in ingredients:
+        db.session().delete(ingredient)
+
     db.session().commit()
     return redirect("/recipes")
 
