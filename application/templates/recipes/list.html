@@ -6,12 +6,13 @@
       <th><h2>Recipe</h2></th>
       <th><h2>By</h2></th>
     </tr>
+    <hr>
     {% for recipe in recipes %}
     <tr>
-      <td><h4>{{ recipe.name }}</h4></td>
-      <td><h4>{{ recipe.account_id }}</h4></td>
+      <td><p><h4>{{ recipe.name }}</h4></p></td>
+      <td><p><h4>{{ recipe.account_id }}</h4></p></td>
       <td>
-        <a class="btn btn-primary" href='/recipes/edit/{{ recipe.id }}'>Edit</a>
+        <p><h4><a class="btn btn-primary" href='/recipes/edit/{{ recipe.id }}'>Edit</a></h4></p>
       </td>
     </tr>
     {% endfor %}

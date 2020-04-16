@@ -4,7 +4,8 @@
   <p>
     Hello world!
   </p>
-
+  <hr>
+  <!--
   {% if needs_purchases is defined %}
   <p>
   	The following users need purchases:
@@ -19,4 +20,38 @@
   </ul>
 
   {% endif %}
+  <hr>
+  -->
+  {% if has_no_recipes is defined %}
+  <p>
+    We encourage you to make recipes:
+  </p>
+
+  <ul>
+    {% for user in has_no_recipes %}
+    <li>
+      {{user.id}} {{user.name}}
+    </li>
+    {% endfor %}
+  </ul>
+
+  {% endif %}
+  
+  
+  <!--
+  {% if is_lazy is defined %}
+  <p>
+    You can do better than that:
+  </p>
+
+  <ul>
+    {% for user in is_lazy %}
+    <li>
+      {{user.id}} {{user.name}}
+    </li>
+    {% endfor %}
+  </ul>
+
+  {% endif %}
+  -->
 {% endblock %}

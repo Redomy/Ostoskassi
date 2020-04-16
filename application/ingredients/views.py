@@ -12,6 +12,8 @@ from application.ingredients.forms import IngredientForm
 @app.route("/recipes/edit/<recipe_id>/new/", methods=["GET"])
 @login_required
 def show_ingredientform(recipe_id):
+	#recipe = Recipe.query.get(recipe_id)
+	#if current_user.id == recipe.account_id:
 	return render_template("ingredients/new.html", form = IngredientForm())
 
 @app.route("/recipes/edit/<recipe_id>/new/", methods=["POST"])
@@ -34,7 +36,10 @@ def add_ingredient(recipe_id):
 @app.route("/recipes/edit/<recipe_id>/<ingredient_id>/", methods=["GET"])
 @login_required
 def show_ingredienteditform(recipe_id, ingredient_id):
+	#recipe = Recipe.query.get(recipe_id)
+    #if current_user.id == recipe.account_id:
 	return render_template("ingredients/edit.html", form = IngredientForm())
+	#return redirect(url_for("show_recipes"))
 
 @app.route("/recipes/edit/<recipe_id>/<ingredient_id>/", methods=["POST"])
 @login_required
@@ -53,7 +58,11 @@ def edit_ingredient(recipe_id, ingredient_id):
 @app.route("/recipes/edit/<recipe_id>/<ingredient_id>/delete/")
 @login_required
 def delete_ingredient(recipe_id, ingredient_id):
+	#recipe = Recipe.query.get(recipe_id)
+    #if current_user.id == recipe.account_id:
 	ingredient = Ingredient.query.get(ingredient_id)
 	db.session().delete(ingredient)
 	db.session.commit()
 	return redirect(url_for("show_recipes"))
+
+	#return redirect(url_for("show_recipes"))
