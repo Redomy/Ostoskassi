@@ -4,3 +4,7 @@ Tarkoituksena lisätä reseptien ainesosille oma tietokanta, joka liitetään re
 Käyttäjät voivat sitten selailla eri käyttäjien tekemiä reseptejä, joita kyseisen reseptin tekijä voi muokata.
 Sovelluksessa luultavasti tulee vain olemaan yhdentasoisia käyttäjiä, siis ei välttämättä admin käyttäjiä.
 Linkki sovellukseen herokussa on README:ssa
+Vaihdoin aihetta reseptikirjaan mutta entiset toiminnallisuudet ovat silti vielä käytössä.
+Nyt sovelluksessa on kolme toisiinsa liittyvää tietokantaa, joista kahdella on CRUD toiminnallisuus(lisäksi on vielä se vanha tietokanta eri aiheesta)
+Nyt vain reseptien tekijät voivat muokata omia reseptejään, mutta sovelluksessa on bugi, joka mahdollistaa, että muutkin käyttäjät voivat
+muokata muiden reseptejä, koska jostain syystä kun koitin korjata sitä sain indent virheitä vaikka niitä ei omasta mielestä ollut.
