@@ -25,12 +25,22 @@
 	</td>
       </tr>
 </form>
+<hr>
 <table>
   {% for ingredient in ingredients %}
   <tr>
     <td>{{ ingredient.name }}</td>
     <td>{{ ingredient.amount }}</td>
   </tr>
+  <tr>
+    <td>
+      <a href='/recipes/edit/{{ recipe.id }}/{{ ingredient.id }}/'>Edit</a>
+    </td>
+    <td>
+      <a href='/recipes/edit/{{ recipe.id }}/{{ ingredient.id }}/delete/'>Delete</a>
+    </td>
+  </tr>
   {% endfor %}
+  <hr>
 </table>
 {% endblock %}

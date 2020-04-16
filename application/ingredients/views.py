@@ -30,3 +30,30 @@ def add_ingredient(recipe_id):
 	db.session().commit()
 
 	return redirect(url_for("show_recipes"))
+
+@app.route("/recipes/edit/<recipe_id>/<ingredient_id>/", methods=["GET"])
+@login_required
+def show_ingredienteditform(recipe_id, ingredient_id):
+	return render_template("ingredients/edit.html", form = IngredientForm())
+
+@app.route("/recipes/edit/<recipe_id>/<ingredient_id>/", methods=["POST"])
+@login_required
+def edit_ingredient(recipe_id, ingredient_id):
+	form = IngredientForm(request.form)
+	ingredient = Ingredient.query.get(ingredient_id)
+
+	if not form.validate():
+		return render_template("ingredient/edit.html", form = form)
+
+	ingredient.name = form.name.data
+	ingredient.amount = form.amount.data
+	db.session().commit()
+	return redirect(url_for("show_recipes"))
+
+@app.route("/recipes/edit/<recipe_id>/<ingredient_id>/delete/")
+@login_required
+def delete_ingredient(recipe_id, ingredient_id):
+	ingredient = Ingredient.query.get(ingredient_id)
+	db.session().delete(ingredient)
+	db.session.commit()
+	return redirect(url_for("show_recipes"))
