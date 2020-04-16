@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+  
+{% block body %}
+<h1>Ingredients</h1>
+<hr>
+{% for ingredient in ingredients %}
+<h4>{{ ingredient.name }}</h4>
+<h6>{{ ingredient.amount }}</h6>
+<hr>
+{% endfor %}
+{% endblock %}

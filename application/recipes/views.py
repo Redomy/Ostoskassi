@@ -41,7 +41,13 @@ def recipes_editform(recipe_id):
         return render_template("recipes/edit.html", form = RecipeForm(), recipe=recipe,
                                  ingredients = Ingredient.query.filter_by(recipe_id=recipe_id).all())
     return redirect(url_for("show_recipes"))
-    
+
+@app.route("/recipes/view/<recipe_id>/", methods=["GET"])
+def recipes_view(recipe_id):
+    recipe = Recipe.query.get(recipe_id)
+    return render_template("recipes/view.html", recipe=recipe,
+                             ingredients = Ingredient.query.filter_by(recipe_id=recipe_id).all())
+
 @app.route("/recipes/edit/<recipe_id>/delete/")
 @login_required
 def recipes_delete(recipe_id):
