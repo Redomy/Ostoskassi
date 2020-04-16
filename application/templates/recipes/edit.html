@@ -5,13 +5,13 @@
   <table>
       <tr>
 	<td>
-	  {{ form.name.label }}
+	  <p><h4>{{ form.name.label }}</h4></p>
 	</td>
 	<td>
-	  {{ form.name }}
+	  <h4>{{ form.name }}</h4>
 	</td>
   <td>
-    <a href='/recipes/edit/{{ recipe.id }}/delete'>Delete</a>
+
     <ul>
       {% for error in form.name.errors %}
       <li>{{ error }}</li>
@@ -21,7 +21,8 @@
       </tr>
       <tr>
 	<td colspan="2">
-	  <input type="submit" value="Save"/>
+	  <input class="btn btn-success" type="submit" value="Save"/>
+    <a class="btn btn-danger" href='/recipes/edit/{{ recipe.id }}/delete'>Delete</a>
 	</td>
       </tr>
 </form>
@@ -29,17 +30,17 @@
 <table>
   {% for ingredient in ingredients %}
   <tr>
-    <td>{{ ingredient.name }}</td>
-    <td>{{ ingredient.amount }}</td>
+    <th><h4>{{ ingredient.name }}</h4></th>
+    <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+    <th><h4>{{ ingredient.amount }}</h4></th>
   </tr>
   <tr>
-    <td>
-      <a href='/recipes/edit/{{ recipe.id }}/{{ ingredient.id }}/'>Edit</a>
-    </td>
-    <td>
-      <a href='/recipes/edit/{{ recipe.id }}/{{ ingredient.id }}/delete/'>Delete</a>
-    </td>
+    <th>
+      <a class="btn btn-primary" href='/recipes/edit/{{ recipe.id }}/{{ ingredient.id }}/'>Edit</a>
+      <a class="btn btn-danger" href='/recipes/edit/{{ recipe.id }}/{{ ingredient.id }}/delete/'>Delete</a>
+    </th>
   </tr>
+  <tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>
   {% endfor %}
   <hr>
 </table>
