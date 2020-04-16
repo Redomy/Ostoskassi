@@ -11,6 +11,7 @@
 	  {{ form.name }}
 	</td>
   <td>
+    <a href='/recipes/edit/{{ recipe.id }}/delete'>Delete</a>
     <ul>
       {% for error in form.name.errors %}
       <li>{{ error }}</li>

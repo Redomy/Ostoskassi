@@ -36,6 +36,13 @@ def recipes_editform(recipe_id):
     recipe = Recipe.query.get(recipe_id)
     return render_template("recipes/edit.html", form = RecipeForm(), recipe=recipe)
 
+@app.route("/recipes/edit/<recipe_id>/delete/")
+@login_required
+def recipes_delete(recipe_id):
+    recipe = Recipe.query.get(recipe_id)
+    db.session().delete(recipe)
+    db.session().commit()
+    return redirect("/recipes")
 
 @app.route("/recipes/", methods=["POST"])
 @login_required
