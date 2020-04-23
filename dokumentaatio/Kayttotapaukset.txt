@@ -36,3 +36,6 @@ Ainesosien muokkaus:
 
 ----------------------------------------------------------------------------
 
+Login:
+
+	SELECT * FROM account WHERE username = username AND password = password;
