@@ -1,0 +1,38 @@
+
+Reseptien lisäys:
+
+	INSERT INTO recipe (name, account_id) VALUES (name, account_id);
+
+Reseptien poisto:
+	
+	DELETE FROM recipe WHERE recipe_id = recipe_id;
+
+Reseptien luku:
+
+	SELECT name FROM recipe;
+
+Reseptien muokkaus:
+	
+	UPDATE recipe SET name = name WHERE id = id;
+
+----------------------------------------------------------------------------
+
+Ainesosien lisäys:
+
+	INSERT INTO ingredient (id, date_created, date_modified, name, amount, recipe_id) 
+	VALUES (id, date_created, date_modified, name, amount, recipe_id);
+
+Ainesosien poisto:
+
+	DELETE FROM ingredient WHERE id = id;
+
+Ainesosien luku:
+
+	SELECT name, amount FROM ingredient WHERE recipe_id = recipe_id;
+
+Ainesosien muokkaus:
+
+	UPDATE ingredient SET name = name, amount = amount WHERE id = id;
+
+----------------------------------------------------------------------------
+

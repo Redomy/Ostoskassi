@@ -1,0 +1,3 @@
+Sovellukseen voisi vielä laittaa yhden tietokantataulun reseptien ohjeille.(Saatan tehdä tämän vielä myöhemmin).
+
+Tiettyjä seikkoja voisi parannella ulkonäössä, esimerkiksi jos ei omista reseptiä niin edit nappi ei edes näkyisi sille käyttäjälle. Tällä hetkellä edit nappi näkyy kaikille mutta vain reseptin omistaja voi sitä käyttää.

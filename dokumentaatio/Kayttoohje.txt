@@ -1,0 +1,6 @@
+Sovellusta voi käyttää herokussa.
+
+Voit kirjautua ylälaidassa olevasta login-napista.
+Kaikkiin perustoimintoihin on sovelluksessa selkeät napit. Tiettyjä toimintoja voi käyttää vain tietyt henkilöt.
+Esimerkiksi vain reseptin tekijä voi muokata omaa reseptiään mutta kuka tahansa vaikka ilman käyttäjää voi katsella
+muiden reseptejä.
