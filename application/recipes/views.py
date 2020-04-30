@@ -70,7 +70,6 @@ def recipes_add():
     if not form.validate():
         return render_template("recipes/new.html", form = form)
 
-   # p = Purchase(request.form.get("name"))
     r = Recipe(form.name.data)
     r.account_id = current_user.id
     #r.account_name = current_user.name
