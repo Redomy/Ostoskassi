@@ -19,16 +19,15 @@
   </ul>
 
   {% endif %}
+  <hr>
   
-  
-  <!--
-  {% if is_lazy is defined %}
+  {% if is_great is defined %}
   <p>
-    You can do better than that:
+    Thank you for your work:
   </p>
 
   <ul>
-    {% for user in is_lazy %}
+    {% for user in is_great %}
     <li>
       {{user.id}} {{user.name}}
     </li>
@@ -36,5 +35,4 @@
   </ul>
 
   {% endif %}
-  -->
 {% endblock %}

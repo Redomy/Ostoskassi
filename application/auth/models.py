@@ -11,7 +11,7 @@ class User(Base):
     username = db.Column(db.String(144), nullable=False)
     password = db.Column(db.String(144), nullable=False)
 
-    #recipes = db.relationship("Purchase", backref='account', lazy=True)
+    #recipes = db.relationship("Recipe", backref='account', lazy=True)
 
     def __init__(self, name, username, password):
         self.name = name
@@ -47,13 +47,11 @@ class User(Base):
         return response
 
     @staticmethod
-    def find_lazy_users():
-        #ei toimi vielä
+    def has_recipes():
         stmt = text("SELECT Account.id, Account.name FROM Account "
                     "LEFT JOIN Recipe ON Recipe.account_id = Account.id "
-                    "LEFT JOIN Ingredient ON Recipe.id = Ingredient.recipe_id "
                     "GROUP BY Account.id "
-                    "HAVING COUNT(Ingredient.id) < 3")
+                    "HAVING COUNT(Recipe.id) > 0")
         res = db.engine.execute(stmt)
 
         response = []

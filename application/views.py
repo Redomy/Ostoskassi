@@ -6,4 +6,4 @@ from application.auth.models import User
 def index():
     return render_template("index.html",
     						 has_no_recipes=User.find_users_with_no_recipes(),
-    						 is_lazy=User.find_lazy_users())
+    						 is_great=User.has_recipes())
