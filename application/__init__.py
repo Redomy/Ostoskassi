@@ -10,7 +10,7 @@ import os
 if os.environ.get("HEROKU"):
 	app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
 else:
-	app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///purchases.db"
+	app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///recipes.db"
 	app.config["SQLALCHEMY_ECHO"] = True
 
 # Luodaan db-olio, jota käytetään tietokannan käsittelyyn
@@ -18,9 +18,6 @@ db = SQLAlchemy(app)
 
 # Luetaan kansiosta application tiedoston views sisältö
 from application import views
-
-from application.purchases import models
-from application.purchases import views
 
 from application.auth import models
 from application.auth import views

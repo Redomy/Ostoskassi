@@ -4,6 +4,6 @@ from application.auth.models import User
 
 @app.route("/")
 def index():
-    return render_template("index.html", needs_purchases=User.find_users_with_no_purchases(),
+    return render_template("index.html",
     						 has_no_recipes=User.find_users_with_no_recipes(),
     						 is_lazy=User.find_lazy_users())

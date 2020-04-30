@@ -11,7 +11,6 @@ class User(Base):
     username = db.Column(db.String(144), nullable=False)
     password = db.Column(db.String(144), nullable=False)
 
-    purchases = db.relationship("Purchase", backref='account', lazy=True)
     #recipes = db.relationship("Purchase", backref='account', lazy=True)
 
     def __init__(self, name, username, password):
@@ -33,20 +32,6 @@ class User(Base):
 
     def roles(self):
         return ["ADMIN"]
-
-    @staticmethod
-    def find_users_with_no_purchases(amount=0):
-        stmt = text("SELECT Account.id, Account.name FROM Account "
-                    "LEFT JOIN Purchase ON Purchase.account_id = Account.id "
-                    "WHERE (Purchase.amount IS null OR Purchase.amount = :amount) "
-                    "GROUP BY Account.id "
-                    "HAVING COUNT(Purchase.id) = 0").params(amount=amount)
-        res = db.engine.execute(stmt)
-
-        response = []
-        for row in res:
-            response.append({"id":row[0], "name":row[1]})
-        return response
 
     @staticmethod
     def find_users_with_no_recipes():
