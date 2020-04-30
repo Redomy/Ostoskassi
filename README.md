@@ -24,3 +24,4 @@ Jostain syystä en saanut reseptien tekijöiden nimiä näkymään vaan sen tila
 Sovellukseen voisi lisätä vielä esimerkiksi uuden tietokantataulun reseptien valmistusohjeille eikä vain ainesosille.
 Admin-käyttäjät ja heidän toiminnallisuudet voisi myös lisätä sovellukseen. Admin-käyttäjillä voisi olla esimerkiksi
 oikeus estää tiettyjä käyttäjiä tekemästä reseptejä, jos siihen olisi aihetta.
+Tiettyjä seikkoja voisi parannella ulkonäössä, esimerkiksi jos ei omista reseptiä niin edit nappi ei edes näkyisi sille käyttäjälle. Tällä hetkellä edit nappi näkyy kaikille mutta vain reseptin omistaja voi sitä käyttää.
