@@ -2,7 +2,8 @@
 
 ### Reseptien lisäys:
 
-	INSERT INTO recipe (id, date_created, date_modified, name, account_id) VALUES (id, date_created, date_modified, name, 			account_id);
+	INSERT INTO recipe (id, date_created, date_modified, name, account_id) VALUES (id, date_created, date_modified,
+	name, account_id);
 
 ### Reseptien poisto:
 	
