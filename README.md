@@ -13,11 +13,14 @@ edellisen komennon ja voit sitten käyttää sovellusta.
 ### Sovellus herokussa:
 [Reseptikirja](https://ostoskassi.herokuapp.com/)
 
+Rekisteröityminen pitää tehdä käsin sqlite tulkin kautta Recipes.db tietokantaan.
 Rekisteröidyttyäsi voit käyttää kaikkia sovelluksen ominaisuuksia. Voit kirjautua sisään tai ulos sovelluksen oikeasta yläkulmasta.
 Kaikille toiminnallisuuksille on selkeät napit. Kuka tahansa voi katsoa muiden reseptejä. Mutta uusia reseptejä voi luoda vain
 kirjautuneet käyttäjät.
 
 # Sovelluksen rajoitteet
+Sovellukseen voisi lisätä selkeän rekisteröitymistoiminnallisuuden, jossa ei olisi esimerkiksi sql-injektio mahdollisuuksia.
+Jostain syystä en saanut reseptien tekijöiden nimiä näkymään vaan sen tilalla on heidän id:nsä.
 Sovellukseen voisi lisätä vielä esimerkiksi uuden tietokantataulun reseptien valmistusohjeille eikä vain ainesosille.
 Admin-käyttäjät ja heidän toiminnallisuudet voisi myös lisätä sovellukseen. Admin-käyttäjillä voisi olla esimerkiksi
 oikeus estää tiettyjä käyttäjiä tekemästä reseptejä, jos siihen olisi aihetta.
