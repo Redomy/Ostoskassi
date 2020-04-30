@@ -58,3 +58,19 @@ class User(Base):
         for row in res:
             response.append({"id":row[0], "name":row[1]})
         return response
+
+
+    @staticmethod
+    def has_fame():
+        stmt = text("SELECT Account.name, COUNT(Recipe.id) FROM Account "
+                    "LEFT JOIN Recipe ON Recipe.account_id = Account.id "
+                    "GROUP BY Account.name "
+                    "HAVING COUNT(Recipe.id) > 0 "
+                    "ORDER BY COUNT(Recipe.id) DESC "
+                    "LIMIT 5")
+        res = db.engine.execute(stmt)
+
+        response = []
+        for row in res:
+            response.append({"name":row[0], "amount":row[1]})
+        return response

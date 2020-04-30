@@ -35,4 +35,20 @@
   </ul>
 
   {% endif %}
+  <hr>
+
+  {% if is_famous is defined %}
+  <p>
+    Wall of fame:
+  </p>
+
+  <ul>
+    {% for user in is_famous %}
+    <li>
+      {{user.name}} has made {{user.amount}} recipe(s)
+    </li>
+    {% endfor %}
+  </ul>
+
+  {% endif %}
 {% endblock %}
